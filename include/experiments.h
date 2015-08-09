@@ -32,8 +32,6 @@
 #include "genome.h"
 #include "species.h"
 
-using namespace std;
-
 using namespace NEAT;
 
 //The XOR evolution routines *****************************************
@@ -42,7 +40,7 @@ bool xor_evaluate(Organism *org);
 int xor_epoch(Population *pop,int generation,char *filename, int &winnernum, int &winnergenes,int &winnernodes);
 
 //Single pole balancing evolution routines ***************************
-Population *pole1_test(int gens); 
+Population *pole1_test(int gens);
 bool pole1_evaluate(Organism *org);
 int pole1_epoch(Population *pop,int generation,char *filename);
 int go_cart(Network *net,int max_steps,int thresh); //Run input
@@ -54,12 +52,12 @@ class CartPole;
 
 Population *pole2_test(int gens,int velocity);
 bool pole2_evaluate(Organism *org,bool velocity,CartPole *thecart);
-int pole2_epoch(Population *pop,int generation,char *filename,bool velocity, CartPole *thecart,int &champgenes,int &champnodes, int &winnernum, ofstream &oFile);
+int pole2_epoch(Population *pop,int generation,char *filename,bool velocity, CartPole *thecart,int &champgenes,int &champnodes, int &winnernum, std::ofstream &oFile);
 
 class CartPole {
 public:
   CartPole(bool randomize,bool velocity);
-  virtual void simplifyTask();  
+  virtual void simplifyTask();
   virtual void nextTask();
   virtual double evalNet(Network *net,int thresh);
   double maxFitness;
@@ -81,7 +79,7 @@ private:
   void performAction(double output,int stepnum);
   void step(double action, double *state, double *derivs);
   void rk4(double f, double y[], double dydx[], double yout[]);
-  bool outsideBounds(); 
+  bool outsideBounds();
 
   const static int NUM_INPUTS=7;
   const static double MUP = 0.000002;
@@ -93,7 +91,7 @@ private:
   const static double LENGTH_1= 0.5;		  /* actually half the pole's length */
 
   const static double FORCE_MAG= 10.0;
-  const static double TAU= 0.01;		  //seconds between state updates 
+  const static double TAU= 0.01;		  //seconds between state updates
 
   const static double one_degree= 0.0174532;	/* 2pi/360 */
   const static double six_degrees= 0.1047192;
