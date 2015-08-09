@@ -30,6 +30,7 @@
 //#include "neatmain.h"
 #include <iostream>
 #include <vector>
+#include <ctime>
 #include "neat.h"
 #include "population.h"
 #include "experiments.h"
@@ -60,7 +61,7 @@ int main(int argc, char *argv[]) {
   //***********RANDOM SETUP***************//
   /* Seed the random-number generator with current time so that
       the numbers will be different every time we run.    */
-  srand( (unsigned)time( NULL ) );
+  std::srand(std::time(0));
 
   if (argc != 2) {
     cerr << "A NEAT parameters file (.ne file) is required to run the experiments!" << endl;
