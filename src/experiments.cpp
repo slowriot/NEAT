@@ -488,10 +488,10 @@ int go_cart(Network *net,int max_steps,int thresh)
 
    if (random_start) {
      /*set up random start state*/
-     x = (lrand48()%4800)/1000.0 - 2.4;
-     x_dot = (lrand48()%2000)/1000.0 - 1;
-     theta = (lrand48()%400)/1000.0 - .2;
-     theta_dot = (lrand48()%3000)/1000.0 - 1.5;
+     x = (std::rand()%4800)/1000.0 - 2.4;
+     x_dot = (std::rand()%2000)/1000.0 - 1;
+     theta = (std::rand()%400)/1000.0 - .2;
+     theta_dot = (std::rand()%3000)/1000.0 - 1.5;
     }
    else 
      x = x_dot = theta = theta_dot = 0.0;
@@ -1297,12 +1297,12 @@ void CartPole::init(bool randomize)
   last_hundred=false;
 
   /*if (randomize) {
-    state[0] = (lrand48()%4800)/1000.0 - 2.4;
-    state[1] = (lrand48()%2000)/1000.0 - 1;
-    state[2] = (lrand48()%400)/1000.0 - 0.2;
-    state[3] = (lrand48()%400)/1000.0 - 0.2;
-    state[4] = (lrand48()%3000)/1000.0 - 1.5;
-    state[5] = (lrand48()%3000)/1000.0 - 1.5;
+    state[0] = (std::rand()%4800)/1000.0 - 2.4;
+    state[1] = (std::rand()%2000)/1000.0 - 1;
+    state[2] = (std::rand()%400)/1000.0 - 0.2;
+    state[3] = (std::rand()%400)/1000.0 - 0.2;
+    state[4] = (std::rand()%3000)/1000.0 - 1.5;
+    state[5] = (std::rand()%3000)/1000.0 - 1.5;
   }
   else {*/
 
